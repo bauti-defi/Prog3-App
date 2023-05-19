@@ -40,4 +40,5 @@ public class NFTCompoundKey implements Serializable {
     public int hashCode() {
         return Objects.hash(address, tokenId);
     }
+
 }
