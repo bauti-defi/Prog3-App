@@ -8,9 +8,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import edu.ucema.marketplace.models.ModelFactory;
 import edu.ucema.marketplace.models.NFT;
-import edu.ucema.marketplace.repositories.NftRepository;
+import edu.ucema.marketplace.services.interfaces.INftService;
 
 @RestController
 @RequestMapping(value = "/api/nft")
@@ -18,11 +17,11 @@ import edu.ucema.marketplace.repositories.NftRepository;
 public class NFTController {
     
     @Autowired
-    private NftRepository nftRepo;
+    private INftService nftService;
 
     @GetMapping(path = "/{address}/{tokenId}")
     public NFT getNFT(@PathVariable String address, @PathVariable String tokenId) {
-        return this.nftRepo.findById(ModelFactory.nftCompoundKey(address, tokenId)).orElse(null);
+        return this.nftService.getNft(address, tokenId);
     } 
 
 }

@@ -1,6 +1,4 @@
-package edu.ucema.marketplace.utils;
-
-import edu.ucema.marketplace.models.NFTCompoundKey;
+package edu.ucema.marketplace.models;
 
 public class ModelFactory {
 
