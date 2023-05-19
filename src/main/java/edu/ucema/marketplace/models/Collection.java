@@ -1,6 +1,7 @@
 package edu.ucema.marketplace.models;
 
 import java.util.List;
+import java.util.Objects;
 
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
@@ -46,6 +47,20 @@ public class Collection {
 
     public String getDescription() {
         return description;
+    }
+
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Collection collection = (Collection) o;
+        return Objects.equals(address, collection.address);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(address);
     }
     
 }

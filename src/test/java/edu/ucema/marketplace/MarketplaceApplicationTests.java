@@ -21,7 +21,7 @@ class MarketplaceApplicationTests {
 	@Test
 	void testGetExistingCollection() {
 		Collection collection = collectionController.getCollection(Constants.BORED_APE_COLLECTION.getAddress());
-		assert collection != null;
+		assert collection.equals(Constants.BORED_APE_COLLECTION);
 	}
 
 	@Test
