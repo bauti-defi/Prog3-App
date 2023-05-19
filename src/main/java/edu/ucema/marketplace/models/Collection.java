@@ -33,5 +33,19 @@ public class Collection {
         this.name = name;
         this.description = description;
     }
+
+    // Getters and setters
+
+    public String getAddress() {
+        return address;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public String getDescription() {
+        return description;
+    }
     
 }
