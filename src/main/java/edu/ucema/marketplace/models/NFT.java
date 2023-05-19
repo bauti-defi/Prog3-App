@@ -1,13 +1,14 @@
 package edu.ucema.marketplace.models;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.IdClass;
+import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 
-import java.io.Serializable;
 import java.util.Objects;
 
 @Entity
@@ -24,14 +25,16 @@ public class NFT {
     @Column(nullable = false, updatable = false)
     private String name;
 
-    @ManyToOne(optional = false)
+    @ManyToOne
+    @JoinColumn(name = "collection_id", nullable = false, updatable = false)
     private Collection collection;
 
     public NFT(){}
 
-    public NFT(String address, String tokenId) {
+    public NFT(String address, String tokenId, String name) {
         this.address = address;
         this.tokenId = tokenId;
+        this.name = name;
     }
 
     // Getters and setters
@@ -61,41 +64,3 @@ public class NFT {
     }
 }
 
-class NFTCompoundKey implements Serializable {
-
-    private String address;
-    private String tokenId;
-
-    public NFTCompoundKey(){}
-
-    public NFTCompoundKey(String address, String tokenId) {
-        this.address = address;
-        this.tokenId = tokenId;
-    }
-
-    // Getters
-
-    public String getAddress() {
-        return address;
-    }
-
-    public String getTokenId() {
-        return tokenId;
-    }
-
-    // Equals and hashCode methods
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        NFTCompoundKey that = (NFTCompoundKey) o;
-        return Objects.equals(address, that.address) &&
-                Objects.equals(tokenId, that.tokenId);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(address, tokenId);
-    }
-}

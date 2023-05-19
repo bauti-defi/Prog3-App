@@ -16,6 +16,7 @@ import jakarta.persistence.Table;
 public class Collection {
 
     @Id
+    @Column(name = "collection_id")
     private String address;
 
     @Column(nullable = false, updatable = false)
@@ -24,7 +25,7 @@ public class Collection {
     @Column(nullable = false, updatable = false)
     private String description;
 
-    @OneToMany(mappedBy = "collection", orphanRemoval = true, fetch = FetchType.LAZY, cascade = {CascadeType.PERSIST, CascadeType.REMOVE})
+    @OneToMany(mappedBy = "collection", fetch = FetchType.LAZY, cascade = {CascadeType.PERSIST, CascadeType.REMOVE})
     private List<NFT> nfts;
 
     public Collection(){}
@@ -49,6 +50,9 @@ public class Collection {
         return description;
     }
 
+    public List<NFT> getNfts() {
+        return nfts;
+    }
 
     @Override
     public boolean equals(Object o) {

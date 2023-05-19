@@ -15,7 +15,7 @@ import edu.ucema.marketplace.services.interfaces.ICollectionService;
 
 @RestController
 @RequestMapping(value = "/api/collections")
-@CrossOrigin(origins = "*", methods = {RequestMethod.GET, RequestMethod.POST, RequestMethod.PUT, RequestMethod.DELETE})
+@CrossOrigin(origins = "*", methods = {RequestMethod.GET})
 public class CollectionController {
 
     @Autowired
