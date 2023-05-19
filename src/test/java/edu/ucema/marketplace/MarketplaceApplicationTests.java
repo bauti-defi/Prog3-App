@@ -20,14 +20,19 @@ class MarketplaceApplicationTests {
 
 	@Test
 	void testGetExistingCollection() {
-		Collection collection = collectionController.getCollection(Constants.BORED_APE_COLLECTION.getAddress());
+		Collection collection = this.collectionController.getCollection(Constants.BORED_APE_COLLECTION.getAddress());
 		assert collection.equals(Constants.BORED_APE_COLLECTION);
 	}
 
 	@Test
 	void testGetNullCollection() {
-		Collection collection = collectionController.getCollection("fakeAddress");
+		Collection collection = this.collectionController.getCollection("fakeAddress");
 		assert collection == null;
+	}
+
+	@Test
+	void testGetAllCollections() {
+		assert this.collectionController.getAllCollections().size() == 3;
 	}
 
 }

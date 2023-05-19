@@ -1,5 +1,7 @@
 package edu.ucema.marketplace.controllers;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -23,5 +25,9 @@ public class CollectionController {
     public Collection getCollection(@PathVariable String address) {
         return this.collectionService.getCollection(address);
     }
-    
+
+    @GetMapping(path = "/all")
+    public List<Collection> getAllCollections() {
+        return this.collectionService.getAllCollections();
+    }    
 }
