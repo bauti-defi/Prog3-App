@@ -7,7 +7,6 @@ This application is a simple NFT marketplace. Java springboot backend and typesc
 mvn install
 ```
 
-
 ### Start up Application
 ```bash
 docker compose up # start database and adminer visuarlization
