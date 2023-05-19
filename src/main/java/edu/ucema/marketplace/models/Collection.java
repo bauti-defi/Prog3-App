@@ -20,10 +20,18 @@ public class Collection {
     @Column(nullable = false, updatable = false)
     private String name;
 
-    @Column(nullable = false, updatable = true)
+    @Column(nullable = false, updatable = false)
     private String description;
 
     @OneToMany(mappedBy = "collection", orphanRemoval = true, fetch = FetchType.LAZY, cascade = {CascadeType.PERSIST, CascadeType.REMOVE})
     private List<NFT> nfts;
+
+    public Collection(){}
+
+    public Collection(String address, String name, String description) {
+        this.address = address;
+        this.name = name;
+        this.description = description;
+    }
     
 }

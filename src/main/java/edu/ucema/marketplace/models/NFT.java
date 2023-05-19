@@ -1,6 +1,5 @@
 package edu.ucema.marketplace.models;
 
-import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
@@ -27,6 +26,8 @@ public class NFT {
 
     @ManyToOne(optional = false)
     private Collection collection;
+
+    public NFT(){}
 
     public NFT(String address, String tokenId) {
         this.address = address;
@@ -62,8 +63,10 @@ public class NFT {
 
 class NFTCompoundKey implements Serializable {
 
-    private final String address;
-    private final String tokenId;
+    private String address;
+    private String tokenId;
+
+    public NFTCompoundKey(){}
 
     public NFTCompoundKey(String address, String tokenId) {
         this.address = address;
