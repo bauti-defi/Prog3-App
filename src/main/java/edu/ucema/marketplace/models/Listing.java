@@ -5,6 +5,7 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
 import jakarta.persistence.Table;
 
 @Entity
@@ -15,8 +16,8 @@ public class Listing {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(nullable = false, updatable = false)
-    private String sellerAddress;
+    @JoinColumn(name = "sellerAddress", nullable = false, updatable = false)
+    private User seller;
 
     @Column(nullable = false, updatable = false)
     private String nftAddress;
@@ -31,7 +32,7 @@ public class Listing {
 
 
     public Listing(String sellerAddress, String nftAddress, String tokenId, int price) {
-        this.sellerAddress = sellerAddress;
+        this.seller = new User(sellerAddress);
         this.nftAddress = nftAddress;
         this.tokenId = tokenId;
         this.price = price;
@@ -39,11 +40,11 @@ public class Listing {
 
 
     public Long getId() {
-        return id;
+        return this.id;
     }
 
-    public String getSellerAddress() {
-        return sellerAddress;
+    public User getSeller() {
+        return this.seller;
     }
 
     public String getNftAddress() {
@@ -51,11 +52,11 @@ public class Listing {
     }
 
     public String getTokenId() {
-        return tokenId;
+        return this.tokenId;
     }
 
     public int getPrice() {
-        return price;
+        return this.price;
     }
     
 }

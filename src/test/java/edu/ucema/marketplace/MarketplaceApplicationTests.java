@@ -33,6 +33,6 @@ class MarketplaceApplicationTests {
 	@Test
 	void testGetAllCollections() {
 		assert this.collectionController.getAllCollections().size() == 3;
-	}
+	} 
 
 }
