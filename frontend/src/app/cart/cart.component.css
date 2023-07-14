@@ -1,0 +1,96 @@
+.cart-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin: 3rem;
+}
+
+.cart-item{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 1px solid #ccc;
+    border-radius: 3rem;
+    padding: 2rem;
+    margin: 1rem;
+    min-width: 25rem;
+    max-width: 40rem;
+}
+
+.cart-item h3{
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+}
+
+.cart-item img{
+    border-radius: 3rem;
+    object-fit: cover;
+    height: 35rem;
+    margin: 1rem;
+}
+
+.cart-item p{
+    font-size: 1.5rem;
+    line-height: 2rem;
+    color: #444;
+    padding-top: 1rem;
+}
+
+.cart-item button{
+    padding: 1rem 2rem;
+    font-size: 1.5rem;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    color: #e72929;
+    background-color: #f2f2f2;
+    margin-top: 1rem;
+}
+
+.cart-item button:hover{
+    opacity: 0.9;
+}
+
+.empty-cart{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.empty-cart h2{
+    font-size: 2.5rem;
+    color: #444;
+}
+
+.purchase-button {
+    padding: 2rem 3rem;  /* Adjust padding as needed */
+    font-size: 2rem;  /* Adjust font-size as needed */
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    color: white;  /* Adjust color as needed */
+    background-color: #e72929;  /* Adjust background-color as needed */
+    margin-top: 2rem;  /* Adjust margin-top as needed */
+    margin-bottom: 2rem;  /* Add margin-bottom to avoid cropping */
+}
+
+
+
+.purchase-button:hover{
+    opacity: 0.9;
+}
+
+a {
+    color: #e72929; /* Change to the color that suits your design */
+    text-decoration: underline;
+}
+
+.total-price {
+    font-size: 2rem;  /* Larger font size for readability */
+    color: #444;  /* Dark color for contrast */
+    font-weight: bold;  /* Bold font for emphasis */
+    margin-top: 2rem;  /* Space above the total price */
+    margin-bottom: 1rem;  /* Space below the total price */
+}

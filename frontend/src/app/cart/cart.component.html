@@ -1,0 +1,28 @@
+<div *ngIf="items.length; else noItems" class="cart-container">
+    <h2>Your Cart</h2>
+    <ul>
+        <li *ngFor="let item of items">
+            <div class="cart-item">
+                <h3>{{item.nft.name}}</h3>
+                <img [src]="item.nft.imageUrl" alt="{{item.nft.name}}"/>
+                <p>Quantity: {{item.quantity}}</p>
+                <p>Price: {{item.nft.price}}</p>
+                <button (click)="removeFromCart(item)">Remove</button>
+            </div>
+        </li>
+    </ul>
+    <p class="total-price">Total Price: {{getTotalPrice()}}</p>
+    <!-- Conditionally display the Purchase button or Login prompt -->
+    <div *ngIf="hasSession; else loginPrompt">
+        <button class="purchase-button" (click)="purchase()">Purchase</button>
+    </div>
+    <ng-template #loginPrompt>
+        <p>Please <a routerLink="/login">log in</a> to make a purchase.</p>
+    </ng-template>
+</div>
+
+<ng-template #noItems>
+    <div class="empty-cart">
+        <h2>Your cart is empty</h2>
+    </div>
+</ng-template>

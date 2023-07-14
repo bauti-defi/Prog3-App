@@ -1,0 +1,14 @@
+<app-search (childToParent)="searchName($event)"></app-search>
+<ul>
+    <li *ngFor="let nft of nftsToShow">
+        <a routerLink="/nft/{{nft.contractAddress}}/{{nft.tokenId}}">
+            <img [src]="nft.imageUrl" alt="nft image" />
+            <div class="content">
+                <div class="title">
+                    <div class="name">{{ nft.name }}</div>
+                    <div class="tokenId">#{{nft.tokenId}}</div>
+                </div>
+            </div>
+        </a>
+    </li>
+</ul>

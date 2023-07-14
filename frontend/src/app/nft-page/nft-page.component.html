@@ -1,0 +1,18 @@
+<div class="container">
+    <img [src]="nft.imageUrl" alt="nft image" class="tokenImage"/>
+    <div class="details">
+        <div class="header">
+            <a href="https://etherscan.io/address/{{nft.contractAddress}}" target="_blank" class="etherscan"> 
+                <img src="assets/etherscan.png" alt="etherscan" style="height: 30px; width: 30px;" />
+            </a>
+            <span class="name">{{nft.name}}</span>
+        </div>
+        <div class="description">
+            <span class="description">{{nft.description}}</span>
+        </div>
+        <div class="buttons">
+            <button class="btn buy-now" (click)="buyNow()">Buy Now</button>
+            <button class="btn add-to-cart {{canAddToCart? '': 'disabled'}}" (click)="toggleInCart()">{{canAddToCart ? "Add to Cart" : "Remove from Cart"}}</button>
+        </div>
+    </div>
+</div>

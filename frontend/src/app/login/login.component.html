@@ -1,0 +1,25 @@
+<body>
+    <div class="login-container">
+        <h2>Login</h2>
+        <form>
+            <div class="input-group">
+                <label for="username">Username:</label>
+                <input type="text" id="username" name="username" required [(ngModel)]="username">
+            </div>
+            <div class="input-group">
+                <label for="wallet">Wallet Address:</label>
+                <input type="wallet" id="wallet" name="wallet" required [(ngModel)]="wallet">
+            </div>
+            <div class="input-group">
+                <input type="submit" value="Login" (click)="login()">
+            </div>
+            <!-- Error Message -->
+            <div *ngIf="errorMessage" class="error-message">
+                {{errorMessage}}
+            </div>
+        </form>
+        <div class="register-link">
+            <p>Don't have an account? <a href="/register">Register</a></p>
+        </div>
+    </div>
+</body>

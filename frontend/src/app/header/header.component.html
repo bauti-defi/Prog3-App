@@ -1,0 +1,15 @@
+<header>
+    <div class="container">
+        <a href="#" routerLink="/" class="logo">Marketplace</a>
+        <nav>
+            <ul>
+                <li><a href="#" routerLink="/">Collections</a></li>
+                <li><a href="#" routerLink="/cart/checkout">{{cartTitle}}</a></li>
+                <!-- Show Logout if user is logged in -->
+                <li *ngIf="hasSession"><a href="#" (click)="logout()">Logout</a></li>
+                <!-- Show Login if user is not logged in -->
+                <li *ngIf="!hasSession"><a href="#" routerLink="/login">Login</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
